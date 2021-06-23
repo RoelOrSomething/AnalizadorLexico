@@ -60,6 +60,18 @@ void mostrarListaSimbolo(ListaSimbolo * lista) {
 	}
 }
 
+// Metodo para imprimir a un archivo una lista de simbolos
+void imprimirAArchivoListaSimbolo(ListaSimbolo * lista, FILE * salida) {
+	fprintf(salida,"\n");
+	NodoSimbolo * current = lista->head;
+	if(lista->head == NULL) 
+		return;
+	fprintf(salida,"Pos\t\tNom\t\tTipo\n");
+  	for(; current != NULL; current = current->next)  {
+		fprintf(salida, "%d\t\t%s\t\t%d\n", current->posicion,current->nombre,current->tipo);
+	}
+}
+
 // Metodo para agregar una literal a la lista
 void agregarSimbolo(ListaSimbolo * lista, int posicion, char * nombre){
 	NodoSimbolo * current = NULL;

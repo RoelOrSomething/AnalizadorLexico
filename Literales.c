@@ -58,6 +58,18 @@ void mostrarListaLiteral(ListaLiteral * lista) {
 	}
 }
 
+// Metodo para imprimir a un archivo el contenido de una lista de literales
+void imprimirAArchivoListaLiteral(ListaLiteral * lista, FILE * salida) {
+	fprintf(salida,"\n");
+	NodoLiteral * current = lista->head;
+	if(lista->head == NULL) 
+		return;
+	fprintf(salida,"Pos\t\tDato\n");
+  	for(; current != NULL; current = current->next) {
+		fprintf(salida,"%d\t\t%s\n", current->posicion,current->dato);
+	}
+}
+
 // Metodo para agregar una literal a la lista
 void agregarLiteral(ListaLiteral * lista, int posicion, char * dato){
 	NodoLiteral * current = NULL;

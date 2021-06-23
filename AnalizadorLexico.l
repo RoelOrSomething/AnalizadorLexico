@@ -14,7 +14,7 @@ Semestre 2021-2.
 #include "Simbolos.h"
 #include "FuncAux.h"
 
-FILE *archSal;
+FILE *archivo_salida;
 
 /*Contador de lineas*/
 int n_linea;
@@ -113,23 +113,47 @@ void main(int argc, char * argv[])
 	tablaLiteralDecimal = crearListaLiteral();
 	tablaSimbolo = crearListaSimbolo();
 
-	yyin = fopen(argv[1],"r");
-	archSal=fopen("salida.txt","w");
+	/*El nombre del archivo de entrada y el de salida*/
+	char * nom_arch = (char *) malloc(strlen(argv[1])+1);
+	strcpy(nom_arch,argv[1]);
+
+	/*Lee del archivo y ejecuta yylex*/
+	yyin = fopen(nom_arch,"r");
 	yylex();
-	fclose(archSal);
 	
-	printf("Tokens\n");
-	mostrarListaToken(tablaToken);
+	/*Despeja el archivo de salida y lo abre en modo append*/
+	char * nom_arch_salida = strcat(nom_arch,".lex");
+	fclose(fopen(nom_arch_salida, "w"));
+	archivo_salida=fopen(nom_arch_salida,"a");
 	
-	printf("Tabla de literales de cadenas\n");
-	mostrarListaLiteral(tablaLiteralCadena);
-	
-	printf("Tabla de literales de decimales\n");
-	mostrarListaLiteral(tablaLiteralDecimal);
-	
-	printf("Tabla de simbolos\n");
+	/*Muetra tabla de simbolos en consola y en archivo*/
+	printf("\nTabla de simbolos\n");
 	mostrarListaSimbolo(tablaSimbolo);
+	fprintf(archivo_salida,"Tabla de simbolos\n");
+	imprimirAArchivoListaSimbolo(tablaSimbolo,archivo_salida);
 	
+	/*Muestra tabla de literales de cadena en consola y en archivo*/
+	printf("\nTabla de literales de cadenas\n");
+	mostrarListaLiteral(tablaLiteralCadena);
+	fprintf(archivo_salida,"Tabla de literales de cadenas\n");
+	imprimirAArchivoListaLiteral(tablaLiteralCadena,archivo_salida);
+	
+	/*Muestra tabla de literales de decimales en consola y en archivo*/
+	printf("\nTabla de literales de decimales\n");
+	mostrarListaLiteral(tablaLiteralDecimal);
+	fprintf(archivo_salida,"Tabla de literales de decimales\n");
+	imprimirAArchivoListaLiteral(tablaLiteralDecimal,archivo_salida);
+	
+	/*Muestra tokens en consola y en archivo*/
+	printf("\nTokens\n");
+	mostrarListaToken(tablaToken);
+	fprintf(archivo_salida,"Tokens\n");
+	imprimirAArchivoListaToken(tablaToken,archivo_salida);
+	
+	printf("\n");
+	fprintf(archivo_salida,"\n");
+	
+	fclose(archivo_salida);
 	
 	/*Se libera la memoria de las tablas*/
 	eliminarListaToken(tablaToken);

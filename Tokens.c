@@ -47,9 +47,22 @@ void mostrarListaToken(ListaToken * lista) {
 	NodoToken * current = lista->head;
 	if(lista->head == NULL) 
 		return;
-  	for(; current != NULL; current = current->next) {
-		printf("(%d,%d)\n", current->clase,current->valor);
+  	for(; current->next != NULL; current = current->next) {
+		printf("(%d,%d), ", current->clase,current->valor);
 	}
+	printf("(%d,%d)", current->clase, current->valor);
+}
+
+// Metodo para imprimir en un archivo el contenido de una lista de tokens
+void imprimirAArchivoListaToken(ListaToken * lista, FILE * salida) {
+	fprintf(salida,"\n");
+	NodoToken * current = lista->head;
+	if(lista->head == NULL) 
+		return;
+  	for(; current->next != NULL; current = current->next) {
+		fprintf(salida, "(%d,%d), ", current->clase,current->valor);
+	}
+	fprintf(salida, "(%d,%d)", current->clase, current->valor);
 }
 
 // Metodo para agregar un token a la lista
