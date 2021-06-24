@@ -24,7 +24,7 @@ int n_tablaLitCadena;
 int n_tablaLitDecimal;
 int n_tablaSimbolo;
 
-/*Creacion de tablas*/
+/*Declaracion de tablas*/
 ListaToken * tablaToken;
 ListaLiteral * tablaLiteralCadena;
 ListaLiteral * tablaLiteralDecimal;
@@ -38,7 +38,7 @@ ident [a-z][a-z0-9]*
 /*Simbolos especiales*/
 simesp ("{")|("}")|(",")|(";")|("(")|(")")|("[")|("]")
 /*Cadenas*/
-cadena @[^@]*@
+cadena @.*@
 /*Operadores aritmeticos*/
 oparit (\+)|(-)|(\*)|(\/)
 /*Operadores relacionales*/
@@ -113,7 +113,7 @@ void main(int argc, char * argv[])
 	tablaLiteralDecimal = crearListaLiteral();
 	tablaSimbolo = crearListaSimbolo();
 
-	/*El nombre del archivo de entrada y el de salida*/
+	/*El nombre del archivo de entrada*/
 	char * nom_arch = (char *) malloc(strlen(argv[1])+1);
 	strcpy(nom_arch,argv[1]);
 

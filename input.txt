@@ -1,0 +1,14 @@
+ENT edad = 22, nacimiento = 1999;
+DEC altura = 1.80, alturap = 1.75;
+SI (edad >= 18){
+	print(@SI es > de edad@);
+}
+SINO{
+	print(@Es menor < DEC edad@);
+	MIENTRAS (edad < 18){
+		edad = edad + 1;
+	}
+}
+PARA(ENT i = 0; i < 10 ; i=i+1){
+	print(@=/*-+@)
+}
