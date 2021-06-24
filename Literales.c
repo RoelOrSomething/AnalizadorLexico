@@ -60,7 +60,6 @@ void mostrarListaLiteral(ListaLiteral * lista) {
 
 // Metodo para imprimir a un archivo el contenido de una lista de literales
 void imprimirAArchivoListaLiteral(ListaLiteral * lista, FILE * salida) {
-	fprintf(salida,"\n");
 	NodoLiteral * current = lista->head;
 	if(lista->head == NULL) 
 		return;

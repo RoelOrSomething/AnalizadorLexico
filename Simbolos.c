@@ -62,7 +62,6 @@ void mostrarListaSimbolo(ListaSimbolo * lista) {
 
 // Metodo para imprimir a un archivo una lista de simbolos
 void imprimirAArchivoListaSimbolo(ListaSimbolo * lista, FILE * salida) {
-	fprintf(salida,"\n");
 	NodoSimbolo * current = lista->head;
 	if(lista->head == NULL) 
 		return;

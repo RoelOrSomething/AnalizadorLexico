@@ -55,7 +55,6 @@ void mostrarListaToken(ListaToken * lista) {
 
 // Metodo para imprimir en un archivo el contenido de una lista de tokens
 void imprimirAArchivoListaToken(ListaToken * lista, FILE * salida) {
-	fprintf(salida,"\n");
 	NodoToken * current = lista->head;
 	if(lista->head == NULL) 
 		return;

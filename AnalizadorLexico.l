@@ -129,25 +129,25 @@ void main(int argc, char * argv[])
 	/*Muetra tabla de simbolos en consola y en archivo*/
 	printf("\nTabla de simbolos\n");
 	mostrarListaSimbolo(tablaSimbolo);
-	fprintf(archivo_salida,"Tabla de simbolos\n");
+	fprintf(archivo_salida,"\nTabla de simbolos\n");
 	imprimirAArchivoListaSimbolo(tablaSimbolo,archivo_salida);
 	
 	/*Muestra tabla de literales de cadena en consola y en archivo*/
 	printf("\nTabla de literales de cadenas\n");
 	mostrarListaLiteral(tablaLiteralCadena);
-	fprintf(archivo_salida,"Tabla de literales de cadenas\n");
+	fprintf(archivo_salida,"\nTabla de literales de cadenas\n");
 	imprimirAArchivoListaLiteral(tablaLiteralCadena,archivo_salida);
 	
 	/*Muestra tabla de literales de decimales en consola y en archivo*/
 	printf("\nTabla de literales de decimales\n");
 	mostrarListaLiteral(tablaLiteralDecimal);
-	fprintf(archivo_salida,"Tabla de literales de decimales\n");
+	fprintf(archivo_salida,"\nTabla de literales de decimales\n");
 	imprimirAArchivoListaLiteral(tablaLiteralDecimal,archivo_salida);
 	
 	/*Muestra tokens en consola y en archivo*/
 	printf("\nTokens\n");
 	mostrarListaToken(tablaToken);
-	fprintf(archivo_salida,"Tokens\n");
+	fprintf(archivo_salida,"\nTokens\n");
 	imprimirAArchivoListaToken(tablaToken,archivo_salida);
 	
 	printf("\n");
