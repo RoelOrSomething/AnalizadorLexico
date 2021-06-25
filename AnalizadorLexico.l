@@ -2,6 +2,7 @@
 /*
 Primer proyecto: Analizador lexico de lenguaje propuesto.
 Elaborado por Roel Alejandro Perez Candanoza.
+20/06/21
 Compiladores.
 Semestre 2021-2.
 */
